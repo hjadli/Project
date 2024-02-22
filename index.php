@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -16,16 +20,20 @@
     <!-- header -->
     <?php
     include 'includes/header.php';
+   
+   
+  
+    
+
     ?>
      <main class="main">
-       
+        
+     <button class="glow-on-hover" type="button">HOVER ME, THEN CLICK ME!</button>
       </main>
 
 
 </body>
 
 <script src="js/script.js"></script>
-<!-- <?php
-    include 'includes/footer.php';
-    ?> -->
+
 </html>

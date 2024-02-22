@@ -1,4 +1,3 @@
-
 <header class="header">
     <div class="container">
         <div class="row align-items-center justify-content-between">
@@ -10,19 +9,9 @@
             </button>
             <nav class="nav">
                <ul>
-                  <li><a href="index.php" class="active">home</a></li>
+                   <li><a href="admin.php" class="active">Login</a></li>
+                   <li><a href="adminsignup.php">Signup</a></li>
                   
-                  <?php
-                  
-                  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                      echo '<li><a href="Events.php">Events</a></li>';
-                      echo '<li><a href="logout.php">Logout</a></li>';
-                  }
-                  else{
-                      echo '<li><a href="login.php">Login</a></li>';
-                      echo '<li><a href="signup.php">Signup</a></li>';
-                  }
-                  ?>
                </ul>
                
             </nav>

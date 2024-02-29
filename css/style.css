@@ -239,7 +239,8 @@ top: 100px;
 
 
 .login-container span{
-  color: green;
+  color: rgb(231, 10, 2);
+  display: block;
 }
 
 
@@ -255,9 +256,15 @@ top: 100px;
   display: flex;
   flex-direction: column;
   align-items: center;
+
 }
+.signup-container a{
+  color: rgb(31, 19, 194);
 
-
+}
+#sup{
+  color: rgb(31, 19, 194);
+}
 
 
 
@@ -357,9 +364,196 @@ input[type="text"],
           }
       }
 
+/* ******************************<--Events page   --> **************************************/
+
+.events-container {
+  width: 100%;
+  border: 1px solid red;
+ 
+  padding: 2px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  
+  
+}
+
+.events-container .card {
+  position: relative;
+  margin: 10px;
+  width: 320px;
+  height: 450px;
+  background: #232323;
+  border-radius: 20px;
+  overflow: hidden; 
+}
+
+.events-container .card:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f3b953;
+  clip-path: circle(150px at 80% 20%);
+  transition: 0.5s ease-in-out;
+}
+
+.events-container .card:hover:before {
+  clip-path: circle(300px at 80% -20%);
+}
+
+.events-container .card:after {
+  content: 'Nike';
+  position: absolute;
+  top: 30%;
+  left: -15%;
+  font-size: 12em;
+  font-weight: 800;
+  font-style: italic;
+  color: rgba(255,255,255,0.04)
+}
+
+.events-container .card .image {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index:800;
+  width: 100%;
+  height: 220px;
+  transition: 0.5s;
+}
+
+.events-container .card:hover .image{
+  top: 0%;
+  transform: translateY(0%);
+}
+
+.events-container .card .image img{
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  width: 270px;
+}
+
+.events-container .card .content {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  transition: 1s;
+  z-index: 10;
+}
+
+.events-container .card:hover .content {
+  height: 210px;
+}
+
+.events-container .card .content h2  {
+  position: relative;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--primary-color)
+}
+
+.events-container .card .content .info,
+.container .card .content .color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 20px;
+  transition: 0.5s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.events-container .card:hover .content .info {
+   opacity: 1;
+  visibility: visible;
+  transition-delay: 0.5s;
+}
+
+.events-container .card:hover .content .color {
+   opacity: 1;
+  visibility: visible;
+  transition-delay: 0.6s;
+}
+
+.events-container .card .content .info h3,
+.events-container .card .content .color h3 {
+  color: var(--secondary-color)
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-right: 10px;
+}
+
+.events-container .card .content .info span {
+  width: 26px;
+  height: 26px;
+  text-align: center;
+  line-height: 26px;
+  font-size: 14px;
+  display: inline-block;
+  color: var(--primary-color);
+  background: #ebe6e7;
+  margin: 0 5px;
+  transition: 0.5s;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.events-container .card .content .info span:hover {
+  background: #f3b953;
+} 
+
+.events-container .card .content .color span {
+  width: 20px;
+  height: 20px;
+  background: #ff0;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.events-container .card .content .color span:nth-child(2){
+  background: #e31e4a;
+} 
+
+.events-container .card .content .color span:nth-child(3){
+  background: #03a9f4;
+} 
+
+.events-container .card .content .color span:nth-child(4){
+  background: #f16a39;
+} 
+
+.events-container .card .content a {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #f3b953;
+  margin-top: 5px;
+ text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  color: var(--secondary-color);
+  opacity: 0;
+  transform: translateY(50px);
+  transition: 0.5s;
+}
 
 
-
+.events-container .card:hover .content a {
+  
+  opacity: 1;
+  transform: translateY(0px);
+  transition-delay: 0.75s;
+}
 
 
 
@@ -451,7 +645,7 @@ input[type="text"],
 }
 
 
-
+/* admin events post  */
 
 
 

@@ -8,16 +8,16 @@
     <title>User Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <?php
     
-    include 'includes/header.php';
+    include '../includes/header.php';
 
     // Include config file
-    require_once 'config.php';
+    require_once '../php/config.php';
 
     // Define variables and initialize with empty values
     $email = $password = "";
@@ -111,7 +111,7 @@
                 <button class="glow-on-hover" type="submit " value="Login">Login</button>
                 <br>
                 <br>
-                <a href="Signup.php"><p>Don't have an Account? </p> <span>signup here </span></a> 
+                <a href="Signup.php"><p>Don't have an Account? </p> <p id="sup"> <u>Sign Up Here.</p></a> 
             </form>
         </div>
 
@@ -127,5 +127,5 @@
     </div>
 
 </body>
-<script src="js/script.js"></script>
+<script src="../js/script.js"></script>
 </html>

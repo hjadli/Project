@@ -9,14 +9,16 @@
             </button>
             <nav class="nav">
                <ul>
-                   <li><a href="admin.php" class="active">Login</a></li>
-                   <li><a href="adminsignup.php">Signup</a></li>
-                  
+                   <?php
+                   if(isset($_SESSION["admin_loggedin"]) && $_SESSION["admin_loggedin"] === true){
+                       echo '<li><a href="dashboard.php" class="active">Dashboard</a></li>';
+                       echo '<li><a href="logout.php">Logout</a></li>';
+                   }
+                   ?>
                </ul>
-               
             </nav>
             <!-- Toggle theme button -->
-               <img src="images/moon.png" alt="" height="20px" width="20px" id="iconn">
+               <img src="../images/moon.png" alt="" height="20px" width="20px" id="iconn">
         </div>
     </div>
- </header>
+</header>

@@ -163,7 +163,7 @@
                     <?php echo isset($confirm_password_err) ? $confirm_password_err : ''; ?>
                 </span>
                 <input type="checkbox" id="chkbx" name="agree" required>  I agree to the terms and conditions<br>
-                <button class="glow-on-hover" type="submit " value="Signup">Signup</button>
+                <button class="btn" type="submit " value="Signup">Signup</button>
                 <a href="login.php"><u>Back to Login</a>
                 <?php
                 // Display notification if signup is successful

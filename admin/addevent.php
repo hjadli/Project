@@ -91,6 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $param_event_image = $target_file;
                     // Attempt to execute the prepared statement
                     if (mysqli_stmt_execute($stmt)) {
+                        echo "Uploaded successfuly.";
                         // Redirect to events page after successful submission
                         header("location: addevent.php");
                         exit;
@@ -163,6 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Include footer -->
     <?php include '../includes/footer.php'; ?>
+    <script src="../js/script.js"></script>
 
 </body>
 

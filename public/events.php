@@ -29,6 +29,7 @@ mysqli_close($conn);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events</title>
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -46,12 +47,16 @@ mysqli_close($conn);
                             <h3>Hosted by: <?php echo htmlspecialchars($event['hosted_by']); ?></h3>
                             <p>Venue: <?php echo htmlspecialchars($event['venue']); ?></p>
                             <p>Date: <?php echo htmlspecialchars($event['event_date']); ?></p>
+                            <button class="btn" type="submit " value="Login">Book Now</button>
                         </div>
                     </div>
                 </div>
             <?php endforeach; ?>
         </div>
     </div>
-    <?php include '../includes/footer.php'; ?>
+
 </body>
+<script src="https://unpkg.com/scrollreveal"></script>
+ 
+<script src="../js/script.js"></script>
 </html>

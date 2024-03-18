@@ -8,6 +8,7 @@
     <title>User Login</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/style.css">
 </head>
 
@@ -108,7 +109,7 @@
                 <input type="password" name="password" placeholder="Enter your Password">
                 <span class="error"><?php echo $password_err; ?></span>
                 <!-- <input type="submit" value="Login"> -->
-                <button class="glow-on-hover" type="submit " value="Login">Login</button>
+                <button class="button" type="submit " value="Login">Login</button>
                 <br>
                 <br>
                 <a href="Signup.php"><p>Don't have an Account? </p> <p id="sup"> <u>Sign Up Here.</p></a> 
@@ -127,5 +128,6 @@
     </div>
 
 </body>
+<script src="https://unpkg.com/scrollreveal"></script>
 <script src="../js/script.js"></script>
 </html>

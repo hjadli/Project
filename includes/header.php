@@ -1,37 +1,43 @@
+<a href="#" class="scrolltop" id="scroll-top">
+    <i class="bx bx-up-arrow-alt scrolltop__icon"></i>
+</a>
 
-<header class="header">
-    <div class="container">
-        <div class="row align-items-center justify-content-between">
-            <div class="logo">
-               <a href="#">CryptoShow</a>
-            </div>
-            <button type="button" class="nav-toggler">
-               <span></span>
-            </button>
-            <nav class="nav">
-               <ul>
-                  
-                  
-                  <?php
-                  
-                  if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-                      echo '<li><a href="Events.php">Events</a></li>';
-                      echo '<li><a href="Profile.php">Profile</a></li>';
-                      
-                      echo '<li><a href="logout.php">Logout</a></li>';
-                  }
-                  else{
-                     echo '<li><a href="index.php" class="active">home</a></li>';
-                      echo '<li><a href="login.php">Login</a></li>';
-                      echo '<li><a href="signup.php">Signup</a></li>';
-                      echo '<li><a href="aboutus.php">About Us</a></li>';
-                  }
-                  ?>
-               </ul>
-               
-            </nav>
-            <!-- Toggle theme button -->
-               <img src="../images/moon.png" alt="" height="20px" width="20px" id="iconn">
+<header class="l-header" id="header">
+    <nav class="nav bd-container">
+        <?php
+        // Check if user is logged in
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+            echo '<a href="index.php" class="nav__logo">CryptoShow</a>';
+        } else {
+            echo '<a href="index.php" class="nav__logo">CRYPTO SHOW</a>';
+        }
+        ?>
+
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <?php
+                if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+                    echo '<li class="nav__item"><a href="Events.php" class="nav__link">Events</a></li>';
+                    echo '<li class="nav__item"><a href="Profile.php" class="nav__link">Profile</a></li>';
+                    echo '<li class="nav__item"><a href="Devices.php" class="nav__link">My Devices</a></li>';
+                    echo '<li class="nav__item"><a href="logout.php" class="nav__link">Logout</a></li>';
+                    
+                } else {
+                    echo '<li class="nav__item"><a href="index.php" class="nav__link active-link">Home</a></li>';
+                    echo '<li class="nav__item"><a href="#share" class="nav__link">Login</a></li>';
+                    echo '<li class="nav__item"><a href="#decoration" class="nav__link">Events</a></li>';
+                   
+                    echo '<li class="nav__item"><a href="#accessory" class="nav__link">Contact</a></li>';
+                    
+                }
+                ?>
+            </ul>
         </div>
-    </div>
- </header>
+       <li class="nav__item"><i class="bx bx-toggle-left change-theme" id="theme-button"></i></li>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="bx bx-grid-alt"></i>
+                </div>
+
+        
+    </nav>
+</header>

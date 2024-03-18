@@ -1,44 +1,109 @@
-//Dark theme 
-var icon= document.getElementById("iconn");
-icon.onclick = function () {
-   document.body.classList.toggle("dark-mode");
-   if  (document.body.classList.contains('dark-mode')){
-       icon.src="../images/sun.png"
-   }else{
-     icon.src="../images/moon.png"}
+const showMenu = (toggleId, navId) => {
+  const toggle = document.getElementById(toggleId),
+    nav = document.getElementById(navId);
 
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      nav.classList.toggle("show-menu");
+    });
+  }
+};
+
+showMenu("nav-toggle", "nav-menu");
+
+const navLink = document.querySelectorAll(".nav__link");
+
+function linkAction() {
+  const navMenu = document.getElementById("nav-menu");
+  navMenu.classList.remove("show-menu");
 }
-//hamburger toggler 
+navLink.forEach((n) => n.addEventListener("click", linkAction));
 
- const navToggler = document.querySelector(".nav-toggler");
- navToggler.addEventListener("click", navToggle);
+const sections = document.querySelectorAll("section[id]");
 
- function navToggle() {
-    navToggler.classList.toggle("active");
-    const nav = document.querySelector(".nav");
-    nav.classList.toggle("open");
-    if(nav.classList.contains("open")){
-    	nav.style.maxHeight = nav.scrollHeight + "px";
+function scrollActive() {
+  const scrollY = window.pageYOffset;
+  sections.forEach((current) => {
+    const sectionHeight = current.offsetHeight;
+    const sectionTop = current.offsetTop - 50;
+    sectionId = current.getAttribute("id");
+
+    if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+      document
+        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .classList.add("active-link");
+    } else {
+      document
+        .querySelector(".nav__menu a[href*=" + sectionId + "]")
+        .classList.remove("active-link");
     }
-    else{
-    	nav.removeAttribute("style");
-    }
- } 
+  });
+}
+window.addEventListener("scroll", scrollActive);
 
- // Get the current URL
- var currentUrl = window.location.href;
+function scrollHeader() {
+  const nav = document.getElementById("header");
+  if (this.scrollY >= 200) nav.classList.add("scroll-header");
+  else nav.classList.remove("scroll-header");
+}
+window.addEventListener("scroll", scrollHeader);
+function scrollTop() {
+  const scrollTop = document.getElementById("scroll-top");
+  if (this.scrollY >= 560) scrollTop.classList.add("show-scroll");
+  else scrollTop.classList.remove("show-scroll");
+}
+window.addEventListener("scroll", scrollTop);
 
- // Get all navigation links
- var navLinks = document.querySelectorAll('.nav a');
+const themeButton = document.getElementById("theme-button");
+const darkTheme = "dark-theme";
+const iconTheme = "bx-toggle-right";
+const selectedTheme = localStorage.getItem("selected-theme");
+const selectedIcon = localStorage.getItem("selected-icon");
 
- // Loop through each navigation link
- navLinks.forEach(function(link) {
-     // Get the href attribute of the link
-     var href = link.getAttribute('href');
+const getCurrentTheme = () =>
+  document.body.classList.contains(darkTheme) ? "dark" : "light";
+const getCurrentIcon = () =>
+  themeButton.classList.contains(iconTheme)
+    ? "bx-toggle-left"
+    : "bx-toggle-right";
 
-     // Check if the current URL matches the link's href
-     if (currentUrl === href) {
-         // Add the active class to the link
-         link.classList.add('active');
-     }
- });
+if (selectedTheme) {
+  document.body.classList[selectedTheme === "dark" ? "add" : "remove"](
+    darkTheme
+  );
+  themeButton.classList[selectedIcon === "bx-toggle-left" ? "add" : "remove"](
+    iconTheme
+  );
+}
+
+themeButton.addEventListener("click", () => {
+  document.body.classList.toggle(darkTheme);
+  themeButton.classList.toggle(iconTheme);
+  localStorage.setItem("selected-theme", getCurrentTheme());
+  localStorage.setItem("selected-icon", getCurrentIcon());
+});
+
+const sr = ScrollReveal({
+  distance: "30px",
+  duration: 1800,
+  reset: true
+});
+
+sr.reveal(
+  `.home__data, .home__img, 
+           .decoration__data,
+           .accessory__content,
+           .footer__content`,
+  {
+    origin: "top",
+    interval: 200
+  }
+);
+
+sr.reveal(`.share__img, .send__content`, {
+  origin: "left"
+});
+
+sr.reveal(`.share__data, .send__img`, {
+  origin: "right"
+});
